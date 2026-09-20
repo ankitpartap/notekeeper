@@ -8,11 +8,14 @@ function Note(props) {
 
   return (
     <div className="note">
-      <h1>{props.title}</h1>
+      <div className="note-header">
+        <h1>{props.title || "Untitled"}</h1>
+        <button onClick={handleClick} aria-label="Delete note">
+          <DeleteIcon />
+        </button>
+      </div>
+      <span className="note-category">{props.category || "General"}</span>
       <p>{props.content}</p>
-      <button onClick={handleClick}>
-        <DeleteIcon/>
-      </button>
     </div>
   );
 }
