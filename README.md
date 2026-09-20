@@ -1,8 +1,13 @@
-# Getting Started with Create React App
+# Keeper
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A responsive React/MUI note keeper with local persistence. Notes have stable IDs,
+created/updated timestamps, editable titles and content, categories, pinning,
+full-text search, and category filtering. Use **Export** and **Import** to
+create or restore a validated JSON backup.
 
 ## Available Scripts
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 In the project directory, you can run:
 
