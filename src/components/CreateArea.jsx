@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-import AddIcon from '@mui/icons-material/Add';
-import Fab from '@mui/material/Fab';
-import Zoom from '@mui/material/Zoom';
 
 const DEFAULT_CATEGORY = "General";
 const categoryOptions = ["General", "Work", "Personal", "Ideas", "Tasks", "Travel"];
@@ -47,17 +44,26 @@ function CreateArea(props) {
   }
 
   return (
-    <div>
-      <form className="create-note" onSubmit={submitNote}>
+    <div className="create-note-card">
+      <form onSubmit={submitNote}>
+        <div className="d-flex align-items-center gap-2 mb-3">
+          <span className="form-icon"><i className="bi bi-pencil-square" aria-hidden="true" /></span>
+          <div>
+            <h3 className="h6 mb-0">Create a note</h3>
+            <small className="text-secondary">What’s on your mind?</small>
+          </div>
+        </div>
         {isExpanded ? (
           <>
             <input
+              className="form-control form-control-lg mb-3"
               name="title"
               onChange={handleChange}
               value={note.title}
-              placeholder="Title"
+              placeholder="Give it a title (optional)"
             />
             <select
+              className="form-select mb-3"
               name="category"
               value={note.category}
               onChange={handleChange}
@@ -72,18 +78,19 @@ function CreateArea(props) {
           </>
         ) : null}
         <textarea
+          className="form-control"
           name="content"
           onClick={expand}
           onChange={handleChange}
           value={note.content}
-          placeholder="Take a note..."
-          rows={isExpanded ? 3 : 1}
+          placeholder="Write something worth remembering..."
+          rows={isExpanded ? 4 : 2}
         />
-        <Zoom in={isExpanded}>
-          <Fab type="submit">
-            <AddIcon />
-          </Fab>
-        </Zoom>
+        {isExpanded && (
+          <button className="btn btn-primary w-100 mt-3" type="submit">
+            <i className="bi bi-plus-lg me-2" aria-hidden="true" />Save note
+          </button>
+        )}
       </form>
     </div>
   );
